@@ -74,6 +74,31 @@ class MaskPharmaciesController < ActionController::Base
 
   def pharmacies_opening
     @pharmacies = Pharmacy.all
+    opening_pharmacies_arr = []
+    
+    day = params[:day].capitalize
+    time = params[:time]
+
+    pharmacies = Pharmacy.all
+    pharmacies.each do |pharmacy|
+      start_time, end_time = pharmacy.opening_time[day].split("-")
+
+      start_time = start_time.strip
+      end_time = end_time.strip if start_time != "未營業"
+      
+      input_time = Time.zone.parse(time)
+      start_time = Time.zone.parse(start_time)
+      end_time = Time.zone.parse(end_time) if end_time != nil
+
+      if end_time != nil
+        if input_time.between?(start_time, end_time)
+          opening_pharmacies_arr << pharmacy.name
+        end
+      end
+    end
+
+    render json: opening_pharmacies_arr
+
   end
 
   private  

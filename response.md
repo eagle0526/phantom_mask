@@ -2,18 +2,18 @@
 > Current content is an example; please edit it to fit your style.
 ## A. Required Information
 ### A.1. Completed tasks
-- [] List all pharmacies open at a specific time and on a day of the week if requested.
+- [x] List all pharmacies open at a specific time and on a day of the week if requested.
   - Implemented at xxx API.
 - [x] List all masks sold by a given pharmacy, sorted by mask name or price.
-  - Implemented at xxx API.
+  - Implemented at /mask_pharmacies?pharmacy_name=Below%20Drug
 - [x] List all pharmacies with more or less than x mask products within a price range.
-  - Implemented at xxx API.
+  - Implemented at /mask_pharmacies/mask_count?min_price=40&max_price=100&mask_count=2
 - [] The top x users by total transaction amount of masks within a date range.
   - Implemented at xxx API.
 - [] The total number of masks and dollar value of transactions within a date range.
   - Implemented at xxx API.
 - [x] Search for pharmacies or masks by name, ranked by relevance to the search term.
-  - Implemented at xxx API.
+  - Implemented at http://localhost:3000/mask_pharmacies/name_relevance?pharmacy=c
 - [] Process a user purchases a mask from a pharmacy, and handle all relevant data changes in an atomic transaction.
   - Implemented at xxx API.
 
