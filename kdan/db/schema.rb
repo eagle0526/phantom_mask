@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_28_063935) do
+ActiveRecord::Schema.define(version: 2023_03_29_073027) do
 
   create_table "mask_pharmacies", force: :cascade do |t|
     t.float "price"
@@ -26,6 +26,20 @@ ActiveRecord::Schema.define(version: 2023_03_28_063935) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "opening_times", force: :cascade do |t|
+    t.string "Mon"
+    t.string "Tue"
+    t.string "Wed"
+    t.string "Thur"
+    t.string "Fri"
+    t.string "Sat"
+    t.string "Sun"
+    t.integer "pharmacy_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pharmacy_id"], name: "index_opening_times_on_pharmacy_id"
   end
 
   create_table "pharmacies", force: :cascade do |t|
@@ -60,6 +74,7 @@ ActiveRecord::Schema.define(version: 2023_03_28_063935) do
 
   add_foreign_key "mask_pharmacies", "masks"
   add_foreign_key "mask_pharmacies", "pharmacies"
+  add_foreign_key "opening_times", "pharmacies"
   add_foreign_key "purchase_histories", "masks"
   add_foreign_key "purchase_histories", "pharmacies"
   add_foreign_key "purchase_histories", "users"

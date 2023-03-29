@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Mon: MyString
+  Tue: MyString
+  Wed: MyString
+  Thur: MyString
+  Fri: MyString
+  Sat: MyString
+  Sun: MyString
+  pharmacy: one
+
+two:
+  Mon: MyString
+  Tue: MyString
+  Wed: MyString
+  Thur: MyString
+  Fri: MyString
+  Sat: MyString
+  Sun: MyString
+  pharmacy: two
