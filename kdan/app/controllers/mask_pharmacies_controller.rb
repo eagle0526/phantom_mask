@@ -76,23 +76,21 @@ class MaskPharmaciesController < ActionController::Base
     @pharmacies = Pharmacy.all
     opening_pharmacies_arr = []
     
-    day = params[:day].capitalize
-    time = params[:time]
+    if params[:day] && params[:time]
+      day = params[:day].capitalize 
+      time = params[:time]
 
-    pharmacies = Pharmacy.all
-    pharmacies.each do |pharmacy|
-      start_time, end_time = pharmacy.opening_time[day].split("-")
-
-      start_time = start_time.strip
-      end_time = end_time.strip if start_time != "未營業"
+      @pharmacies.each do |pharmacy|
+        start_time, end_time = pharmacy.opening_time[day].split("-")
       
-      input_time = Time.zone.parse(time)
-      start_time = Time.zone.parse(start_time)
-      end_time = Time.zone.parse(end_time) if end_time != nil
+        if end_time != nil
+          input_time = Time.zone.parse(time)
+          start_time = Time.zone.parse(start_time.strip)
+          end_time = Time.zone.parse(end_time.strip)
 
-      if end_time != nil
-        if input_time.between?(start_time, end_time)
-          opening_pharmacies_arr << pharmacy.name
+          if input_time.between?(start_time, end_time)
+            opening_pharmacies_arr << pharmacy.name
+          end
         end
       end
     end

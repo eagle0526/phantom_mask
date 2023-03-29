@@ -65,7 +65,7 @@ module MyModule
   
       # 這一段是處理 Mon, Wed, Fri 這種的格式
       elsif                 
-        opening_hours.gsub!(/(\d{2}:\d{2}\s*-\s*\d{2}:\d{2})/, '!\1')
+        opening_hours = opening_hours.gsub(/(\d{2}:\d{2}\s*-\s*\d{2}:\d{2})/, '!\1')
         opening_hours = opening_hours.split("!")        
         opening_hours[0].split(", ").each do |day|
           formatted_hours[day] = "#{opening_hours[1]}"
