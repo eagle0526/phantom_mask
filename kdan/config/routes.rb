@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     collection do
       get :mask_count
       get :name_relevance
+      get :pharmacies_opening
 
     end
   end

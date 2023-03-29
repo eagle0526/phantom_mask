@@ -1,0 +1,24 @@
+<h2>藥局時間</h2>
+
+<table>
+    <tr>
+        <td>pharmacy id</td>        
+        <td>pharmacy name</td>        
+        <td>pharmacy opening_hours</td>        
+                
+    </tr>
+    <% @pharmacies.each do |pharmacy| %>
+    <tr>
+        <td><%= pharmacy.id %></td>        
+        <td><%= pharmacy.name %></td>        
+        <td><%= pharmacy.opening_hours %></td>
+        <td>
+          <%= parse_opening_hours(pharmacy.opening_hours) %>
+        </td>
+        
+        
+    </tr>
+    <% end %>
+
+
+</table>

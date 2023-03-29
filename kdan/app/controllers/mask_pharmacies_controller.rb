@@ -72,6 +72,10 @@ class MaskPharmaciesController < ActionController::Base
     render json: json_data
   end
 
+  def pharmacies_opening
+    @pharmacies = Pharmacy.all
+  end
+
   private  
   #   term 參數要傳"資料庫的藥局或口罩"、 search_term要傳"路徑搜尋"
   def relevance_score(term, search_term)
