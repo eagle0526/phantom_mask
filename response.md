@@ -54,6 +54,7 @@ $ rails db:migrate
 ```bash
 $ rake create_pharmacies_and_masks 
 $ rake create_user_and_purchase_histories  
+$ rake create_pharmacies_openings
 ```
 
 
